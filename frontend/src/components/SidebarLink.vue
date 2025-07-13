@@ -6,8 +6,8 @@
 			link.highlight
 				? 'border border-blue-200 bg-blue-100 shadow-sm'
 				: isActive
-				? 'bg-surface-selected shadow-sm'
-				: 'hover:bg-surface-gray-2'
+					? 'bg-surface-selected shadow-sm'
+					: 'hover:bg-surface-gray-2'
 		"
 		@click="handleClick"
 	>
@@ -91,6 +91,11 @@ const props = defineProps({
 })
 
 function handleClick() {
+	if (props.link.to === 'builder') {
+		window.location.href = '/builder'
+		return
+	}
+
 	if (router.hasRoute(props.link.to)) {
 		router.push({ name: props.link.to })
 	} else if (props.link.to) {

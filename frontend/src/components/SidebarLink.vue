@@ -91,8 +91,8 @@ const props = defineProps({
 })
 
 function handleClick() {
-	if (props.link.to === 'builder') {
-		window.location.href = '/builder'
+	if (props.link.to === 'builder/') {
+		window.open(window.location.origin + '/builder', '_blank')
 		return
 	}
 
